@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - SportsInfo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #E5D5B6;
+        }
+
+        nav {
+            background: #1B2A41;
+            padding: 30px;
+        }
+        nav div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+            position: relative;
+        }
+        nav img {
+            height: 60px;
+            transition: transform 0.3s ease-in-out;
+        }
+        nav img:hover {
+            transform: scale(1.1);
+        }
+        nav a {
+            color: #E5D5B6;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease-in-out;
+            justify-content: space-around;
+            text-align: center;
+        }
+        nav a:hover {
+            color: #C7A664;
+            letter-spacing: 0.5px;
+            text-decoration: underline;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #1B2A41;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            color: #E5D5B6;
+            transition: all 0.3s ease-in-out;
+        }
+        .dropdown-content a:hover {
+            background: #C7A664;
+            color: #1B2A41;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+        .search-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: -20px; 
+    gap: 1px; 
+}
+
+
+.search-input {
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 250px;
+}
+
+
+.search-btn {
+    background-color: #f1c40f;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-btn i {
+    color: #333;
+}
+
+.search-btn:hover {
+    background-color: #e1b90f;
+}
+
+
+.login-btn {
+    text-decoration: none; 
+    color: #fff;  
+    background-color: #C7A664;  
+    padding: 10px 20px;  
+    border-radius: 5px;  
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+    margin-right: -60px;
+    transition: all 0.3s ease-in-out;
+}
+
+.login-btn:hover {
+    background-color: #e4a321;  
+    text-decoration: none; 
+}
+
+footer {
+    background-color: #1B2A41;
+    color: white;
+    padding: 1px 20px;
+    position: relative;
+    bottom: 0%;
+    width: 100%; 
+    max-width: 1600px; 
+    margin: 0 auto; 
+    font-size: 14px; 
+    box-sizing: border-box; 
+    margin-top: auto; 
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap; 
+    gap: 15px;  
+}
+
+.footer-about, .footer-links, .footer-contact, .footer-social {
+    width: 22%;
+    min-width: 200px; 
+}
+
+.footer-about h3, .footer-links h3, .footer-contact h3, .footer-social h3 {
+    font-size: 20px; 
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-about p, .footer-links ul, .footer-contact ul {
+    font-size: 14px; 
+}
+
+.footer-links ul, .footer-contact ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-links li, .footer-contact li {
+    margin-bottom: 6px; 
+}
+
+.footer-links a, .footer-contact a {
+    color: #f1c40f;
+    text-decoration: none;
+}
+
+.footer-links a:hover, .footer-contact a:hover {
+    text-decoration: underline;
+}
+
+.footer-social {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    font-size: 25px; 
+    color: #f1c40f;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #e67e22;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 15px;
+    margin-top: -25px;
+}
+
+.footer-bottom p {
+    color: #ccc;
+}
+
+        /* Container Styling */
+        .cantainer {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #C7A664;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        /* Heading Styling */
+        h1 {
+            text-align: center;
+            color: #1B2A41;
+            font-size: 2.5em;
+            animation: bounceIn 1s ease-out forwards;
+        }
+
+        /* Paragraph Styling */
+        p {
+            line-height: 1.8;
+            color: #222; /* Improved contrast */
+            text-align: justify;
+            font-size: 1.1em;
+        }
+
+        /* Highlight Class */
+        .highlight {
+            color: #FF5733;
+            font-weight: bold;
+        }
+
+
+        button {
+            padding: 10px 20px;
+            background-color: #ccb654;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #997f0d;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #C7A664;
+        padding: 20px;
+        border-radius: 10px;
+        width: 400px;
+        max-height: 80vh; /* Fix: Limits height */
+        overflow-y: auto; /* Fix: Enables scrolling */
+        margin: 10vh auto; /* Centers the modal */
+        position: relative;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        text-align: left;
+        }
+
+        .close {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            background-color: #E5D5B6;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .submit-btn:hover {
+            background-color: #ccba97;
+        }
+
+        /* Guestbook Entries Section */
+        .guestbook-entries {
+            border-top: 2px solid #ddd;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        .entry {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .entry p {
+            margin: 5px 0;
+        }
+
+        .entry strong {
+            color: #333;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Bounce-in Animation for h1 */
+        @keyframes bounceIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            60% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cantainer {
+                width: 100%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+            .nb  {
+                flex-direction: column;
+                max-width: 100%;
+            }
+            .NAVA  {
+                flex-direction: column;
+                max-width: 90%;
+            }
+            
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-about, .footer-links, .footer-contact, .footer-social {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1B2A41;">
+        <div class="container-fluid">
+           
+            <a href="index.html" class="navbar-brand">
+                <img src="logo.png" alt="Sports Info Logo" style="height: 60px;">
+            </a>
+
+            <!-- Hamburger Button (visible on small screens) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links (Collapsing on Small Screens) -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" target="_blank">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Category.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Category
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Football.html" target="_blank">Football</a></li>
+                            <li><a class="dropdown-item" href="Basketball.html" target="_blank">Basketball</a></li>
+                            <li><a class="dropdown-item" href="Tennis.html" target="_blank">Tennis</a></li>
+                            <li><a class="dropdown-item" href="Cricket.html" target="_blank">Cricket</a></li>
+                            <li><a class="dropdown-item" href="Judo.html" target="_blank">Judo</a></li>
+                            <li><a class="dropdown-item" href="Athletics.html" target="_blank">Athletics</a></li>
+                            <li><a class="dropdown-item" href="Motorcycle Racing.html" target="_blank">Motorcycle Racing</a></li>
+                            <li><a class="dropdown-item" href="Badminton.html" target="_blank">Badminton</a></li>
+                            <li><a class="dropdown-item" href="Golf.html" target="_blank">Golf</a></li>
+                            <li><a class="dropdown-item" href="Swimming.html" target="_blank">Swimming</a></li>
+                            <li><a class="dropdown-item" href="Billiards.html" target="_blank">Billiards</a></li>
+                            <li><a class="dropdown-item" href="Volleyball.html" target="_blank">Volleyball</a></li>
+                            <li><a class="dropdown-item" href="Chess.html" target="_blank">Chess</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact us.html" target="_blank">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutus 4.html" target="_blank">About Us</a>
+                    </li>
+
+                    
+                    <li class="nav-item d-lg-none">
+                        <a href="login.html" class="login-btn">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+           
+
+            <!-- Login Button (visible on large screens) -->
+            <a href="login.html" class="login-btn d-none d-lg-inline-flex">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+        </div>
+    </nav>
+
+
+
+
+    <div class="cantainer">
+        <h1>About Us</h1>
+        <p>Welcome to <span class="highlight">SportsInfo.com</span>,At SportsInfo.com, we are dedicated to bringing you the most accurate, in-depth, and engaging sports content from around the world. Whether you’re a die-hard fan, a rising athlete, or someone simply looking to explore the world of sports, we’ve got you covered!
+
+            From the electrifying world of Football and Tennis to the strategic brilliance of Chess and beyond, we provide expert insights, game strategies, player profiles, tournament highlights, and record-breaking moments that shape the sports universe.</p>
+        <p><span class="highlight">Infocom</span>, a globally renowned company specializing in developing informative digital platforms, is proud to present this website. With years of expertise, we ensure that SportsInfo.com delivers reliable, well-structured, and updated content.</p>
+        <p>We believe that sports are more than just games—they are a global language that connects people across cultures. Our goal is to create an interactive space where fans can: <br>
+            ✅ Discover historical facts and legendary moments <br>
+            ✅ Stay updated with the latest scores and tournament news <br>
+            ✅ Learn game-changing strategies from the experts <br>
+            ✅ Explore player journeys and inspiring success stories <br></p>
+        <p>Join us in celebrating the spirit of sports, uncovering the legends, and learning about the games that unite millions around the globe. Stay informed, stay inspired, and let’s dive into the fascinating world of sports together!</p>
+    
+        <button onclick="openModal()">Sign Guestbook</button>
+        <div id="guestbookModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Guestbook</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" placeholder="abcdefghijklmnopqrstuvwxyz">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" placeholder="abcd@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date of Visit:</label>
+                        <input type="date" id="date" >
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" placeholder="123 streat">
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Comment:</label>
+                        <textarea id="comment"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="recommend">Would you recommend us?</label>
+                        <select id="recommend">
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Site Rating:</label>
+                        <select id="rating">
+                            <option>1 - Excellent</option>
+                            <option>2 - Good</option>
+                            <option>3 - Average</option>
+                            <option>4 - Poor</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+    
+                <!-- Guestbook Entries -->
+                <div class="guestbook-entries">
+                    <h3>Recent Guestbook Entries</h3>
+    
+                    <div class="entry">
+                        <p><strong>Name:</strong> Alice Smith</p>
+                        <p><strong>Date:</strong> 2025-03-18</p>
+                        <p><strong>Comment:</strong> Loved the designs, will buy again!</p>
+                        <p><strong>Recommended:</strong> Yes</p>
+                        <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐ (Excellent)</p>
+                    </div>
+    
+                    <div class="entry">
+                        <p><strong>Name:</strong> Bob Johnson</p>
+                        <p><strong>Date:</strong> 2025-03-17</p>
+                        <p><strong>Comment:</strong> Good quality shirts but delivery was slow.</p>
+                        <p><strong>Recommended:</strong> Yes</p>
+                        <p><strong>Rating:</strong> ⭐⭐⭐⭐ (Good)</p>
+                    </div>
+    
+                    <div class="entry">
+                        <p><strong>Name:</strong> Charlie Brown</p>
+                        <p><strong>Date:</strong> 2025-03-16</p>
+                        <p><strong>Comment:</strong> Average experience, designs could be better.</p>
+                        <p><strong>Recommended:</strong> No</p>
+                        <p><strong>Rating:</strong> ⭐⭐⭐ (Average)</p>
+                    </div>
+    
+                    <div class="entry">
+                        <p><strong>Name:</strong> Daisy Williams</p>
+                        <p><strong>Date:</strong> 2025-03-15</p>
+                        <p><strong>Comment:</strong> Amazing customer support, love it!</p>
+                        <p><strong>Recommended:</strong> Yes</p>
+                        <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐ (Excellent)</p>
+                    </div>
+    
+                    <div class="entry">
+                        <p><strong>Name:</strong> Edward Clark</p>
+                        <p><strong>Date:</strong> 2025-03-14</p>
+                        <p><strong>Comment:</strong> Not satisfied with the fabric quality.</p>
+                        <p><strong>Recommended:</strong> No</p>
+                        <p><strong>Rating:</strong> ⭐⭐ (Poor)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            function openModal() {
+                document.getElementById("guestbookModal").style.display = "block";
+            }
+    
+            function closeModal() {
+                document.getElementById("guestbookModal").style.display = "none";
+            }
+        </script>
+    
+    
+    </div>
+
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>About Sports.info</h3>
+                <p>Sports.info is your ultimate destination for sports news, updates, and live scores. We provide
+                    up-to-date coverage on various sports like football, basketball, cricket, tennis, and more.</p>
+            </div>
+    
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="category.html">Categories</a></li>
+                    <li><a href="contact us.html">Contact Us</a></li>
+                    <li><a href="aboutus 4.html">About Us</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Email: <a href="mailto:sportsinfo@Gmail.com">sportsinfo@Gmail.com</a></li>
+                    <li>Phone: <a href="tel:+92 *********">+92 *********</a></li>
+                    <li>Address: 123 ********** City, Country</li>
+                </ul>
+            </div>
+    
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank" class="social-icon"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="social-icon"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="social-icon"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sports.info. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
