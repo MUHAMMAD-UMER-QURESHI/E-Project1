@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAYER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+</head>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background: #E5D5B6;
+    }
+    nav {
+        background: #1B2A41;
+        padding: 30px;
+    }
+    nav div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        max-width: 1200px;
+        margin: auto;
+        position: relative;
+    }
+    nav img {
+        height: 60px;
+        transition: transform 0.3s ease-in-out;
+    }
+    nav img:hover {
+        transform: scale(1.1);
+    }
+    nav a {
+        color: #E5D5B6;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: 600;
+        font-size: 18px;
+        transition: all 0.3s ease-in-out;
+        justify-content: space-around;
+        text-align: center;
+    }
+    nav a:hover {
+        color: #C7A664;
+        letter-spacing: 0.5px;
+        text-decoration: underline;
+    }
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background: #1B2A41;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        overflow: hidden;
+        z-index: 1;
+    }
+    .dropdown-content a {
+        display: block;
+        padding: 10px;
+        color: #E5D5B6;
+        transition: all 0.3s ease-in-out;
+    }
+    .dropdown-content a:hover {
+        background: #C7A664;
+        color: #1B2A41;
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+
+    .search-container {
+display: flex;
+align-items: center;
+justify-content: flex-end;
+margin-right: -20px; 
+gap: 1px; 
+}
+
+
+.search-input {
+padding: 8px;
+font-size: 16px;
+border: none;
+border-radius: 5px;
+margin-right: 10px;
+width: 250px;
+}
+
+
+.search-btn {
+background-color: #f1c40f;
+border: none;
+padding: 10px 15px;
+border-radius: 5px;
+cursor: pointer;
+transition: all 0.3s ease-in-out;
+}
+
+.search-btn i {
+color: #333;
+}
+
+.search-btn:hover {
+background-color: #e1b90f;
+}
+
+
+.login-btn {
+text-decoration: none; 
+color: #fff;  
+background-color: #C7A664;  
+padding: 10px 20px;  
+border-radius: 5px;  
+display: inline-flex;
+align-items: center;
+font-size: 16px;
+margin-right: -60px;
+transition: all 0.3s ease-in-out;
+}
+
+.login-btn:hover {
+background-color: #e4a321;  
+text-decoration: none; 
+}
+
+footer {
+background-color: #1B2A41;
+color: white;
+padding: 1px 20px;
+position: relative;
+bottom: 0;
+width: 100%; 
+max-width: 1600px; 
+margin: 0 auto; 
+font-size: 14px; 
+box-sizing: border-box; 
+margin-top: auto; 
+}
+
+.footer-container {
+display: flex;
+justify-content: space-between;
+flex-wrap: nowrap; 
+gap: 15px;  
+}
+
+.footer-about, .footer-links, .footer-contact, .footer-social {
+width: 22%;
+min-width: 200px; 
+}
+
+.footer-about h3, .footer-links h3, .footer-contact h3, .footer-social h3 {
+font-size: 20px; 
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+.footer-about p, .footer-links ul, .footer-contact ul {
+font-size: 14px; 
+}
+
+.footer-links ul, .footer-contact ul {
+list-style: none;
+padding-left: 0;
+}
+
+.footer-links li, .footer-contact li {
+margin-bottom: 6px; 
+}
+
+.footer-links a, .footer-contact a {
+color: #f1c40f;
+text-decoration: none;
+}
+
+.footer-links a:hover, .footer-contact a:hover {
+text-decoration: underline;
+}
+
+.footer-social {
+display: flex;
+align-items: center;
+flex-direction: column;
+}
+
+.social-icons {
+display: flex;
+gap: 15px;
+}
+
+.social-icon {
+font-size: 25px; 
+color: #f1c40f;
+transition: color 0.3s;
+}
+
+.social-icon:hover {
+color: #e67e22;
+}
+
+.footer-bottom {
+text-align: center;
+font-size: 15px;
+margin-top: -25px;
+}
+
+.footer-bottom p {
+color: #ccc;
+}
+
+.cart {
+        display: flex;
+        max-width: 900px;
+        background: #C7A664;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        margin: 20px auto;
+        animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .image {
+        width: 360px;
+    }
+    .image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .content {
+        padding: 30px;
+        width: 540px;
+    }
+    .content h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    .NW {
+        font-size: 20px;
+        color: #295391;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+    .stats span, .info span {
+        display: block;
+        background: #E5D5B6;
+        padding: 8px 15px;
+        margin: 5px 0;
+        border-radius: 5px;
+    }
+    .stats span:hover {
+        transform: scale(1.1);
+    }
+    .info span:hover {
+        transform: scale(1.1);
+    }
+    .gallery {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .gallery img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease-in-out;
+    }
+    .gallery img:hover {
+        transform: scale(1.1);
+    }
+    footer {
+        text-align: center;
+        padding: 15px;
+        background: #1B2A41;
+        color: #C7A664;
+        margin-top: auto;
+    }
+    @media screen and (max-width: 1024px) {
+        .nb  {
+            flex-direction: column;
+            max-width: 100%;
+        }
+        .NAVA  {
+            flex-direction: column;
+            max-width: 90%;
+        }
+        .cart {
+            flex-direction: column;
+            max-width: 90%;
+        }
+
+        .image {
+            width: 100%;
+        }
+        .content {
+            width: 100%;
+            padding: 20px;
+            flex-direction: column;
+            max-width: 90%;
+        }
+        .gallery {
+            flex-direction: column;
+            align-items: center;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+        }
+        .navbar-nav {
+            flex-direction: column;
+            max-width: 100%;
+        }
+        .footer-container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .footer-about, .footer-links, .footer-contact, .footer-social {
+            width: 100%;
+        }
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1B2A41;">
+        <div class="container-fluid">
+           
+            <a href="index.html" class="navbar-brand">
+                <img src="logo.png" alt="Sports Info Logo" style="height: 60px;">
+            </a>
+
+            <!-- Hamburger Button (visible on small screens) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links (Collapsing on Small Screens) -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" target="_blank">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Category.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Category
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Football.html" target="_blank">Football</a></li>
+                           
+                            <li><a class="dropdown-item" href="Tennis.html" target="_blank">Tennis</a></li>
+                            <li><a class="dropdown-item" href="Cricket.html" target="_blank">Cricket</a></li>
+                            <li><a class="dropdown-item" href="Judo.html" target="_blank">Judo</a></li>
+                            <li><a class="dropdown-item" href="Athletics.html" target="_blank">Athletics</a></li>
+                            <li><a class="dropdown-item" href="Motorcycle Racing.html" target="_blank">Motorcycle Racing</a></li>
+                            <li><a class="dropdown-item" href="Badminton.html" target="_blank">Badminton</a></li>
+                            <li><a class="dropdown-item" href="Golf.html" target="_blank">Golf</a></li>
+                            <li><a class="dropdown-item" href="Swimming.html" target="_blank">Swimming</a></li>
+                            <li><a class="dropdown-item" href="Billiards.html" target="_blank">Billiards</a></li>
+                            <li><a class="dropdown-item" href="Volleyball.html" target="_blank">Volleyball</a></li>
+                            <li><a class="dropdown-item" href="Chess.html" target="_blank">Chess</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact us.html" target="_blank">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutus 4.html" target="_blank">About Us</a>
+                    </li>
+
+                    
+                    <li class="nav-item d-lg-none">
+                        <a href="login.html" class="login-btn">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+          
+
+            <!-- Login Button (visible on large screens) -->
+            <a href="login.html" class="login-btn d-none d-lg-inline-flex">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+        </div>
+    </nav>
+
+    <div class="cart">
+        <div class="image">
+            <img src="Jakob Ingebrigtsen1.PNG" alt="Cristiano Ronaldo">
+        </div>
+        <div class="content">
+            <h1>Jakob Ingebrigtsen</h1>
+            <div class="NW" style="text-align: start;">Net Worth: $4 Million</div>
+            <div class="info">
+                <span>Full Name: Jakob Ingebrigtsen</span>
+                <span>Date of Birth: 19 September 2000 (age 24)</span>
+                <span>Place of Birth: Sandnes, Norway</span>
+                <span>Height: 1.86 m (6 ft 1 in)</span>
+                <span>Sport: Middle-Distance Running</span>
+            </div>
+            <div class="stats">
+                <span>Nationality: Norwegian</span>
+                <span>Personal Best (1500m): 3:27.14</span>
+                <span>Personal Best (5000m): 12:48.45</span>
+                <span>Olympic Gold Medals: 1</span>
+                <span>World Championship Golds: 1</span>
+                <span>European Championship Golds: 4</span>
+                <span>Diamond League Titles: 3</span>
+            </div>
+        </div>
+        
+    </div>
+<div class="gallery">
+    <img src="Jakob Ingebrigtsen2.PNG" alt="Cristiano Ronaldo Goal Celebration">
+    <img src="Jakob Ingebrigtsen3.PNG" alt="Cristiano Ronaldo Al Nassr Match">
+    <img src="Jakob Ingebrigtsen4.PNG" alt="Cristiano Ronaldo Training Session">
+</div>
+<footer>
+    <div class="footer-container">
+        <div class="footer-about">
+            <h3>About Sports.info</h3>
+            <p>Sports.info is your ultimate destination for sports news, updates, and live scores. We provide
+                up-to-date coverage on various sports like football, basketball, cricket, tennis, and more.</p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="category.html">Categories</a></li>
+                <li><a href="contact us.html">Contact Us</a></li>
+                <li><a href="aboutus 4.html">About Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <ul>
+                <li>Email: <a href="mailto:sportsinfo@Gmail.com">sportsinfo@Gmail.com</a></li>
+                <li>Phone: <a href="tel:+92 *********">+92 *********</a></li>
+                <li>Address: 123 ********** City, Country</li>
+            </ul>
+        </div>
+
+        <div class="footer-social">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank" class="social-icon"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" class="social-icon"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank" class="social-icon"><i
+                        class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Sports.info. All rights reserved.</p>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
